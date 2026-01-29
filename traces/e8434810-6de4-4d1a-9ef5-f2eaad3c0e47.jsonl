@@ -1,0 +1,2 @@
+{"timestamp": "2026-01-28T04:53:20.239839Z", "run_id": "e8434810-6de4-4d1a-9ef5-f2eaad3c0e47", "event": "run_started", "data": {"row_count": 8, "globals": {"as_of": "2024-01-15", "usd_rounding": "cents", "cost_center_map_keys": ["ENG", "FIN", "HR", "OPS"]}}}
+{"timestamp": "2026-01-28T04:53:20.250986Z", "run_id": "e8434810-6de4-4d1a-9ef5-f2eaad3c0e47", "event": "run_completed", "data": {"status": "WAITING_FOR_USER", "success_count": 0, "error_count": 0, "global_prompts_count": 0, "row_prompts_count": 6}}

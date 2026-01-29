@@ -1,0 +1,16 @@
+{"timestamp":"2024-01-15T10:30:00.000Z","run_id":"sample-run-001","event":"run_started","data":{"row_count":10,"globals":{"as_of":"2024-01-15","usd_rounding":"cents","cost_center_map_keys":["ENG","FIN","HR"]}}}
+{"timestamp":"2024-01-15T10:30:00.150Z","run_id":"sample-run-001","event":"row_validated","data":{"row_id":2,"ok":true,"errors":[]}}
+{"timestamp":"2024-01-15T10:30:00.151Z","run_id":"sample-run-001","event":"row_validated","data":{"row_id":3,"ok":true,"errors":[]}}
+{"timestamp":"2024-01-15T10:30:00.152Z","run_id":"sample-run-001","event":"row_validated","data":{"row_id":4,"ok":false,"errors":["fx_rate required for non-USD currency"]}}
+{"timestamp":"2024-01-15T10:30:00.153Z","run_id":"sample-run-001","event":"row_validated","data":{"row_id":5,"ok":false,"errors":["cost_center_map missing key for dept=OPS"]}}
+{"timestamp":"2024-01-15T10:30:00.200Z","run_id":"sample-run-001","event":"prompt_generated","data":{"prompt_id":"cost_center:OPS","kind":"global","field":"cost_center_map","message":"cost_center_map is missing a value for dept=OPS. Enter cost center code."}}
+{"timestamp":"2024-01-15T10:30:05.000Z","run_id":"sample-run-001","event":"answer_received","data":{"prompt_id":"cost_center:OPS","value":"CC-OPS-004"}}
+{"timestamp":"2024-01-15T10:30:05.100Z","run_id":"sample-run-001","event":"prompt_generated","data":{"prompt_id":"row:4:fx_rate","kind":"row","field":"fx_rate","message":"Row 4: fx_rate is invalid or missing for non-USD currency. Enter fx_rate (0.1-500)."}}
+{"timestamp":"2024-01-15T10:30:10.000Z","run_id":"sample-run-001","event":"answer_received","data":{"prompt_id":"row:4:fx_rate","value":1.07}}
+{"timestamp":"2024-01-15T10:30:10.500Z","run_id":"sample-run-001","event":"row_transformed","data":{"row_id":2,"success":true,"computed":{"amount_usd":1500.00,"cost_center":"CC-ENG-001","approval_required":"NO"}}}
+{"timestamp":"2024-01-15T10:30:10.501Z","run_id":"sample-run-001","event":"row_transformed","data":{"row_id":3,"success":true,"computed":{"amount_usd":60000.00,"cost_center":"CC-FIN-002","approval_required":"YES"}}}
+{"timestamp":"2024-01-15T10:30:10.502Z","run_id":"sample-run-001","event":"row_transformed","data":{"row_id":4,"success":true,"computed":{"amount_usd":1605.00,"cost_center":"CC-HR-003","approval_required":"NO"}}}
+{"timestamp":"2024-01-15T10:30:10.503Z","run_id":"sample-run-001","event":"row_transformed","data":{"row_id":5,"success":true,"computed":{"amount_usd":2500.00,"cost_center":"CC-OPS-004","approval_required":"NO"}}}
+{"timestamp":"2024-01-15T10:30:11.000Z","run_id":"sample-run-001","event":"artifact_created","data":{"name":"success.xlsx","path":"data/runs/sample-run-001/artifacts/success.xlsx","row_count":8}}
+{"timestamp":"2024-01-15T10:30:11.100Z","run_id":"sample-run-001","event":"artifact_created","data":{"name":"errors.xlsx","path":"data/runs/sample-run-001/artifacts/errors.xlsx","row_count":2}}
+{"timestamp":"2024-01-15T10:30:11.200Z","run_id":"sample-run-001","event":"run_completed","data":{"status":"COMPLETED","success_count":8,"error_count":2,"global_prompts_count":0,"row_prompts_count":0}}
